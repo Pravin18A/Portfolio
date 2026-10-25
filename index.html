@@ -27,7 +27,7 @@
       --accent: #b66dff;
       --accent2: #ff5fd2;
       --radius: 24px;
-      --maxw: 1240px; 
+      --maxw: 1240px;
     }
 
     * {
@@ -300,8 +300,11 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      padding-top: 110px;
-      padding-bottom: 140px
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 100px 11% 120px;
+      box-sizing: border-box;
     }
 
     .hero .tag {
@@ -336,18 +339,20 @@
     }
 
     .hero h1 {
-      font-size: clamp(4rem, 12.5vw, 10.5rem);
-      margin: 12px 0 28px;
-      letter-spacing: -.06em
+      font-size: clamp(64px, 7vw, 110px);
+      line-height: 0.95;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero h1 em {
       display: block;
+      font-style: italic;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      padding-right: .1em
+      padding-right: .1em;
     }
 
     .hero .lead {
@@ -1231,6 +1236,101 @@
       transform: none
     }
 
+    /* MOBILE HERO FIX */
+    @media (max-width: 768px) {
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .hero-photo {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(to bottom,
+            rgba(8, 5, 14, 0.02) 10%,
+            rgba(8, 5, 14, 0.12) 35%,
+            rgba(8, 5, 14, 0.78) 58%,
+            #08050e 85%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        
+        box-sizing: border-box;
+      }
+
+      .hero-inner>.tag,
+      .hero-inner>.kicker,
+      .hero-inner>h1,
+      .hero-inner>.lead,
+      .hero-inner>.cta {
+        max-width: 100%;
+      }
+
+      .hero-inner>.tag {
+        font-size: 9px;
+        line-height: 1.6;
+      }
+
+      .hero-inner>.kicker {
+        margin-top: 18px;
+        font-size: 10px;
+      }
+
+      .hero h1 {
+        font-size: clamp(56px, 15vw, 76px);
+        line-height: 0.9;
+        margin: 12px 0 18px;
+      }
+
+      .hero h1 em {
+        display: block;
+      }
+
+      .hero .lead {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .hero .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .hero-foot {
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+
     @media(max-width:900px) {
       section {
         padding: 84px 0
@@ -1298,6 +1398,28 @@
       .proc-card {
         padding: 30px
       }
+
+      @media (min-width: 769px) {
+
+        .hero-inner>.tag,
+        .hero-inner>.kicker,
+        .hero-inner>h1,
+        .hero-inner>.lead,
+        .hero-inner>.cta {
+          max-width: 600px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-inner {
+          padding: 100px 24px 120px;
+        }
+
+        .hero h1 {
+          font-size: clamp(56px, 12vw, 82px);
+        }
+      }
+
     }
   </style>
 </head>
@@ -1327,7 +1449,7 @@
     <section class="hero">
       <div class="hero-photo">
         <!-- Put your photo at images/profile.jpg -->
-        <img src="C:\Users\vaggu\Downloads\Modern Portrait with Purple Rim Light.png" alt="Portrait of Your Name"
+        <img src="Modern Portrait with Purple Rim Light.png"alt="Portrait of Your Name"
           onerror="this.style.display='none'">
       </div>
       <div class="wrap hero-inner">
@@ -1404,11 +1526,11 @@
           <div class="visual reveal" id="visualBox">
 
             <video class="tab-video active" id="buildVideo" autoplay muted loop playsinline>
-              <source src="C:\Users\vaggu\Downloads\Portfoile\Demo UI.mp4" type="video/mp4">
+              <source src="Demo UI.mp4" type="video/mp4">
             </video>
 
             <video class="tab-video" id="teachVideo" muted loop playsinline>
-              <source src="C:\Users\vaggu\Downloads\Portfoile\Demo UI 02.mp4" type="video/mp4">
+              <source src="Demo UI 02.mp4" type="video/mp4">
             </video>
 
             <video class="tab-video" id="connectVideo" muted loop playsinline>
@@ -1432,7 +1554,7 @@
           <a href="https://www.behance.net/gallery/256286077/Smart-Energy-Monitoring-Analytics-Dashboard"
             class="project reveal">
             <div class="shot g1"><span class="pill">Power Monitoring System</span><img
-                src="C:\Users\vaggu\Downloads\Portfoile\SP Power Energy.webp" alt="">Project One</div>
+                src="D:\PravinPortfolio\SP Power Energy.webp" alt="">Project One</div>
             <div>
               <span class="num">01</span><span class="cat">B2B SaaS · Energy Management</span>
               <h3>SP Power Energy</h3>
@@ -1442,20 +1564,25 @@
             </div>
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.zeropik.user" class="project reveal">
-            <div class="shot g2"><span class="pill">Mobile App</span><img src="C:\Users\vaggu\Downloads\Portfoile\Zeropik App.png" alt=""> Project Two</div>
+            <div class="shot g2"><span class="pill">Mobile App</span><img src="D:\PravinPortfolio\Zeropik App.png"
+                alt=""> Project Two</div>
             <div>
               <span class="num">02</span><span class="cat">MOBILITY &amp; DIGITAL SERVICES</span>
               <h3>ZEROPIK: Bike Taxi &amp; Auto </h3>
-              <p>Designed a seamless mobile experience for ride booking and everyday digital services, bringing transportation and essential payments together in one convenient app.</p>
+              <p>Designed a seamless mobile experience for ride booking and everyday digital services, bringing
+                transportation and essential payments together in one convenient app.</p>
               <span class="btn ghost">View Live App →</span>
             </div>
           </a>
-          <a href="https://www.behance.net/gallery/238479179/Ston-Modern-Jewelry-App-Case-Study"class="project reveal">
-            <div class="shot g3"><span class="pill">E-Commerce App</span><image src="C:\Users\vaggu\Downloads\Portfoile\Stone Mordern Jewellery App.png" alt=""> Project Three</div>
+          <a href="https://www.behance.net/gallery/238479179/Ston-Modern-Jewelry-App-Case-Study" class="project reveal">
+            <div class="shot g3"><span class="pill">E-Commerce App</span>
+              <image src="D:\PravinPortfolio\Stone Mordern Jewellery App.png" alt=""> Project Three
+            </div>
             <div>
               <span class="num">03</span><span class="cat">E-COMMERCE & PRODUCT DESIGN</span>
               <h3>Stoné Modern Jewelry App</h3>
-              <p>Designed an elegant jewelry shopping experience focused on product discovery, personalized ring selection, and a premium digital storefront.</p>
+              <p>Designed an elegant jewelry shopping experience focused on product discovery, personalized ring
+                selection, and a premium digital storefront.</p>
               <span class="btn ghost">View Case Study →</span>
             </div>
           </a>
@@ -1468,7 +1595,8 @@
               <a href="https://toolucs.com/"><small>04 / MARKETPLACE & PRODUCT DESIGN</small>
                 <h4>Toolucs — Web App & Mobile App</h4>
               </a>
-              <a href="https://www.behance.net/gallery/249524821/Solar-Energy-Landing-Page-UIUX-Design"><small>05 / WEB DESIGN & LANDING PAGE</small>
+              <a href="https://www.behance.net/gallery/249524821/Solar-Energy-Landing-Page-UIUX-Design"><small>05 / WEB
+                  DESIGN & LANDING PAGE</small>
                 <h4>Solar Energy — Website Landing Page</h4>
               </a>
             </div>
@@ -1476,7 +1604,8 @@
         </div>
 
         <div class="quick reveal">
-          <a href="#">All work ↗</a><a href="https://www.behance.net/pravinvaggu">UI/UX Case Studies ↗</a><a href="https://www.youtube.com/@GlowthSphere">AI Visuals & Video Creation
+          <a href="#">All work ↗</a><a href="https://www.behance.net/pravinvaggu">UI/UX Case Studies ↗</a><a
+            href="https://www.youtube.com/@GlowthSphere">AI Visuals & Video Creation
             ↗</a><a href="#">View Resume ↗</a>
         </div>
       </div>
@@ -1487,7 +1616,8 @@
       <div class="wrap">
         <p class="label reveal"><b>03</b> / How I think &amp; work</p>
         <h2 class="reveal">How I work. <em>From idea to impact.</em></h2>
-        <p class="lead reveal">Explore how I turn ideas into intuitive digital products, compelling visuals, and AI-powered creative experiences.</p>
+        <p class="lead reveal">Explore how I turn ideas into intuitive digital products, compelling visuals, and
+          AI-powered creative experiences.</p>
 
         <div class="proc">
           <div class="proc-nav reveal">
@@ -1505,31 +1635,35 @@
             <div class="proc-pane active" id="p1">
               <p class="label">01 / UI/UX &amp; Product Design</p>
               <h3>Design with <em class="serif">purpose.</em></h3>
-              <p>I turn user needs and business goals into intuitive digital experiences, from early concepts and wireframes to polished interfaces and interactive prototypes.</p>
+              <p>I turn user needs and business goals into intuitive digital experiences, from early concepts and
+                wireframes to polished interfaces and interactive prototypes.</p>
               <ol class="steps">
                 <li><b>01</b>Understand the user</li>
                 <li><b>02</b>Shape the experience</li>
                 <li><b>03</b>Refine the interface</li>
               </ol>
               <div class="chips"><span>Figma</span><span>Prototyping</span><span>Design System
-                  </span><span>User Experience</span></div>
+                </span><span>User Experience</span></div>
             </div>
             <div class="proc-pane" id="p2">
               <p class="label">02 / AI Design &amp; Video Creation</p>
               <h3>Create beyond <em class="serif">limits.</em></h3>
-              <p>I combine creative direction with AI tools to develop engaging graphics, visual concepts, and AI-generated videos for digital content and brand communication.</p>
+              <p>I combine creative direction with AI tools to develop engaging graphics, visual concepts, and
+                AI-generated videos for digital content and brand communication.</p>
               <ol class="steps">
                 <li><b>01</b>Explore creative ideas</li>
                 <li><b>02</b>Generate visuals</li>
                 <li><b>03</b>Bring ideas to life</li>
               </ol>
-              <div class="chips"><span>AI Image Generation</span><span>AI Video</span><span>Product Design</span><span>Visual Storytelling</span>
+              <div class="chips"><span>AI Image Generation</span><span>AI Video</span><span>Product
+                  Design</span><span>Visual Storytelling</span>
               </div>
             </div>
             <div class="proc-pane" id="p3">
               <p class="label">03 / Web &amp; Mobile App Design</p>
               <h3>Build For <em class="serif">every screen.</em></h3>
-              <p>I design cohesive web and mobile experiences that balance visual clarity, usability, and responsive behavior across different devices and screen sizes.</p>
+              <p>I design cohesive web and mobile experiences that balance visual clarity, usability, and responsive
+                behavior across different devices and screen sizes.</p>
               <ol class="steps">
                 <li><b>01</b>Plan the structure</li>
                 <li><b>02</b>Design across devices</li>
@@ -1547,13 +1681,15 @@
       <div class="wrap">
         <p class="label reveal"><b>04</b> / Creative impact, scaled.</p>
         <h2 class="reveal">Creative reach is measurable. <em>Impact is visible.</em></h2>
-        <p class="lead reveal">Creating AI-powered videos and brand visuals that turn creative ideas into engaging digital experiences.</p>
+        <p class="lead reveal">Creating AI-powered videos and brand visuals that turn creative ideas into engaging
+          digital experiences.</p>
 
         <div class="impact-big">
           <div class="big-num reveal">1M<em>+</em></div>
           <div class="reveal">
-            <h3>Ideas created.<br>Stories brought to life.</h3>
-            <p>From AI-generated videos to brand-focused content, I combine visual storytelling and creative experimentation to make ideas stand out.</p>
+            <h3>Total Views.<br>Stories That Connect.</h3>
+            <p>From AI-generated videos to brand-focused content, I combine visual storytelling and creative
+              experimentation to make ideas stand out.</p>
             <a href="https://www.youtube.com/@GlowthSphere" class="btn ghost">Explore My Videos</a>
           </div>
         </div>
@@ -1571,7 +1707,8 @@
 
         <div class="thread reveal">
           <p class="label">From a thought to a concept.</p>
-          <p class="big">Good design solves problems.<br>Great design connects people.<br><em>Meaningful design moves us forward.</em></p>
+          <p class="big">Good design solves problems.<br>Great design connects people.<br><em>Meaningful design moves us
+              forward.</em></p>
         </div>
       </div>
     </section>
@@ -1582,7 +1719,8 @@
         <p class="label reveal"><b>05</b> / THE JOURNEY SO FAR</p>
         <h2 class="reveal">Started with curiosity.<em>Kept creating.</em></h2>
         <div class="story">
-          <p class="lead reveal">My journey combines product design, continuous learning, and AI-powered creativity. Each project helps me explore new ideas, solve problems, and create more meaningful digital experiences.</p>
+          <p class="lead reveal">My journey combines product design, continuous learning, and AI-powered creativity.
+            Each project helps me explore new ideas, solve problems, and create more meaningful digital experiences.</p>
           <div class="tline">
             <div class="tl reveal"><small>2023</small>
               <h3>Learning the craft.</h3>
@@ -1618,27 +1756,35 @@
           <button class="tab" data-f="mine">My channel</button>
           <button class="tab" data-f="collab">Collaborations</button>
         </div>
-
         <div class="videos">
-          <a href="https://youtube.com/" target="_blank" rel="noopener" class="video reveal" data-f="mine">
-            <div class="thumb">▶</div>
-            <div class="t"><small>Personal channel</small>
-              <h4>Your Video Title One</h4>
-              <p>Short description of the video.</p>
+          <a href="https://www.youtube.com/@GlowthSphere" target="_blank" rel="noopener" class="video reveal"
+            data-f="mine">
+            <div class="thumb">
+              <image src="Video01.png" alt=""></image>
+            </div>
+            <div class="t"><small>AI VIDEO CREATION</small>
+              <h4>AI VIDEO CREATION</h4>
+              <p>Creative concepts transformed into engaging AI-generated videos.</p>
             </div>
           </a>
-          <a href="https://youtube.com/" target="_blank" rel="noopener" class="video reveal" data-f="collab">
-            <div class="thumb">▶</div>
-            <div class="t"><small>Collaboration</small>
-              <h4>Your Video Title Two</h4>
-              <p>Short description of the video.</p>
+          <a href="https://www.instagram.com/p/DOdjxWMkyqk/?exln=MXEzZndyYjhnZTNiZg==" target="_blank" rel="noopener"
+            class="video reveal" data-f="collab">
+            <div class="thumb">
+              <image src="Video02.png" alt=""></image>
+            </div>
+            <div class="t"><small>BRAND COLLABORATION</small>
+              <h4>Brand Video Production</h4>
+              <p>Visual content created to showcase products, services, and brand identity.</p>
             </div>
           </a>
-          <a href="https://youtube.com/" target="_blank" rel="noopener" class="video reveal" data-f="mine">
-            <div class="thumb">▶</div>
-            <div class="t"><small>Personal channel</small>
-              <h4>Your Video Title Three</h4>
-              <p>Short description of the video.</p>
+          <a href="https://youtu.be/ZvXqOk99f0U?si=wSUCc0hHL3EPW810" target="_blank" rel="noopener" class="video reveal"
+            data-f="mine">
+            <div class="thumb">
+              <image src="Video03.jpg" alt=""></image>
+            </div>
+            <div class="t"><small>PERSONAL PROJECT</small>
+              <h4>Creative Experiments with AI</h4>
+              <p>Exploring AI tools, visual styles, and new approaches to video creation.</p>
             </div>
           </a>
         </div>
@@ -1646,12 +1792,12 @@
         <div class="socials">
           <a href="https://www.youtube.com/@GlowthSphere" target="_blank" rel="noopener" class="reveal">
             <p class="label">YOUTUBE / GLOWTHSPHERE</p>
-            <h4>Stories, in<em>motion.</em></h4>
+            <h4>Stories,in <em>motion.</em></h4>
             <p>AI-generated videos, devotional visuals, and creative content made for digital audiences.</p>
           </a>
           <a href="https://www.behance.net/pravinvaggu/projects" target="_blank" rel="noopener" class="reveal">
             <p class="label">BEHANCE / PROJECTS</p>
-            <h4>Ideas,<em>designed.</em></h4>
+            <h4>Ideas, <em> designed.</em></h4>
             <p>Explore UI/UX case studies, product interfaces, and digital design projects.</p>
           </a>
         </div>
@@ -1663,7 +1809,8 @@
       <div class="wrap">
         <p class="label reveal">LET'S MAKE IT HAPPEN · OPEN TO COLLABORATION</p>
         <h2 class="reveal">Something great<br>starts with <em>a hello.</em></h2>
-        <p class="lead reveal">From digital products to intuitive user experiences, let's turn your challenges into meaningful solutions..</p>
+        <p class="lead reveal">From digital products to intuitive user experiences, let's turn your challenges into
+          meaningful solutions..</p>
         <a href="vaggupravin903@gmail.com" class="btn primary reveal">Let's connect →</a>
       </div>
     </section>
@@ -1692,7 +1839,7 @@
     // header style on scroll
     const hdr = document.getElementById('hdr');
     const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 30);
-    onScroll(); window.addEventListener('scroll', onScroll, {passive: true});
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
     // mobile menu
     const links = document.getElementById('links');
@@ -1762,8 +1909,8 @@
 
     // scroll reveal
     const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) {e.target.classList.add('in'); io.unobserve(e.target);}
-    }), {threshold: .12});
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
     // cursor glow
